@@ -1,11 +1,13 @@
 import React from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 
+import { useAuthContext } from "../context/AuthProvider";
+
 import AuthenticatedAppRoutes from "./AuthenticatedAppRoutes";
 import UnauthenticatedAppRoutes from "./UnauthenticatedAppRoutes";
 
 const AppRoutes = () => {
-  const user = true;
+  const { user } = useAuthContext();
 
   return (
     <Router>
