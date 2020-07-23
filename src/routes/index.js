@@ -11,7 +11,7 @@ const AppRoutes = () => {
 
   return (
     <Router>
-      {user ? <AuthenticatedAppRoutes /> : <UnauthenticatedAppRoutes />}
+      {!user ? <AuthenticatedAppRoutes /> : <UnauthenticatedAppRoutes />}
     </Router>
   );
 };
