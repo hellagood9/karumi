@@ -1,68 +1,85 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+# Karumi Code Challenge
 
-In the project directory, you can run:
+by Maximiliano A. Sussini
 
-### `yarn start`
+## Stack
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+  - React: JS Library
+  - Context / Hooks APIs: State (data) managment
+  - React-router-dom: Routing
+  - Sass: Styling
+  - Github actions: Continuous Integration (CI)
+  - Github pages / Netlify: Deploy
+  - Netlify functions: Serverless functions
+  - ESLint, Prettier, Stylelint: Quality code
+  - Jest / Enzyme: Testing
+  
+## Scope of the project
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+- Login page (serverless function endpoint)
+- Login form
+- Form validation (required fields)
+- Error management (in case the endpoint fails)
+- Save a token (jwt) to some browser storage
+- Protected page (redirects the user after logging in)
+- Access to a browser storage and get the user jwt and validate it against an endpoint (serverless function)
+- Redirect to login form if user is not authenticated
 
-### `yarn test`
+### Installation
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Requires [Node.js](https://nodejs.org/) v11+ to run.
 
-### `yarn build`
+Install the dependencies and and start the react-app.
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```sh
+$ git clone https://github.com/hellagood9/karumi.git
+$ cd karumi
+$ yarn && yarn add netlify-cli -g
+$ netlify dev
+```
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+### URL
+http://localhost:8888
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Credentials to Login
 
-### `yarn eject`
+| Field | Value |
+| ------ | ------ |
+| username | doe@test.com
+| password | 123456
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Routes
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Instructions on how to use them in your own application are linked below.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+| Route | Info |
+| ------ | ------ |
+| / | Homepage for authenticated users
+| /login | Login page 
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### Dependencies
 
-## Learn More
+### /client
+- classnames
+- node-sass
+- prop-types
+- react-helmet
+- react-router-dom
+- netlify-lambda
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Todo
+- Improve the design/layout
+- Toast or similiar to provide a better feedback to the user
+- More testings
+- CI for PRs
+- Rollbar (or similar)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+License
+----
 
-### Code Splitting
+MIT
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+:muscle:
+**Free Software, Hell Yeah!**
