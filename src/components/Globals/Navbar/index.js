@@ -11,7 +11,6 @@ const Navbar = () => {
     logout,
   } = useAuthContext();
 
-  // const logout = () => console.log("Logout");
   const username = user && user.username;
 
   return (
