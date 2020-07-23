@@ -1,6 +1,22 @@
-test("adds 1 + 2 to equal 3", () => {
-  function sum(a, b) {
-    return a + b;
-  }
-  expect(sum(1, 2)).toBe(3);
+import { useAuthContext, AuthProvider } from "../../../context/AuthProvider";
+
+describe("Navbar", () => {
+  test("Renders correctly in DOM", () => {
+    const MockedNavbar = () => {
+      const { user, logout } = useAuthContext();
+
+      return (
+        <>
+          <div data-testid="value">{!user}</div>
+          <button onClick={logout}>Logout</button>
+        </>
+      );
+    };
+
+    mount(
+      <AuthProvider>
+        <MockedNavbar />
+      </AuthProvider>
+    );
+  });
 });
