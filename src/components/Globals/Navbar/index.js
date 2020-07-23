@@ -18,7 +18,7 @@ const Navbar = () => {
       <div className={styles["nav-right"]}>
         <ul className={styles["list"]}>
           <li data-testid="value" className={styles["list-item"]}>
-            John Doe
+            Jane Doe
           </li>
           <li>
             <button className={styles["btn"]} onClick={logout}>
