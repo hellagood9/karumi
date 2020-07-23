@@ -14,7 +14,8 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "3.4.1"
+    "react-scripts": "3.4.1",
+    "stylelint-config-sass-guidelines": "^7.0.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -23,6 +24,8 @@
     "eject": "react-scripts eject",
     "lint:js": "eslint '**/*.js' --ignore-pattern node_modules/",
     "lint:js:fix": "eslint '**/*.js' --ignore-pattern node_modules/ --fix",
+    "lint:scss": "stylelint '**/*.scss' --syntax scss -f verbose --color",
+    "lint:scss:fix": "stylelint '**/*.scss' --syntax scss --fix -f verbose —color",
     "prettier:check": "prettier --check \"**/*.{js, jsx, yml, yaml, json, css, scss, md}\"",
     "prettier:write": "prettier --write \"**/*.{js, jsx, yml, yaml, json, css, scss, md}\""
   },
@@ -45,6 +48,10 @@
     "eslint": "^6.6.0",
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-react": "^7.20.3",
-    "prettier": "2.0.5"
+    "prettier": "2.0.5",
+    "stylelint": "^13.6.1",
+    "stylelint-config-css-modules": "^2.2.0",
+    "stylelint-config-prettier": "^8.0.2",
+    "stylelint-config-standard": "^20.0.0"
   }
 }
