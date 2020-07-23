@@ -1,12 +1,35 @@
-import React, { createContext, useContext } from "react";
+import React, { createContext, useContext, useState, useEffect } from "react";
 import PropTypes from "prop-types";
+
+import { sendRequest } from "../utils/sendRequest";
 
 const AuthContext = createContext({});
 
 function AuthProvider({ children }) {
-  const user = { user: { username: "Jane Doe", name: "Jane Doe" } };
+  const [user, setUser] = useState({});
 
-  const login = () => console.log("login");
+  useEffect(() => {
+    const getUserFromLocalStorage = () => {
+      const localUserJson = localStorage.getItem("jwtToken");
+      const localUser = localUserJson && JSON.parse(localUserJson);
+      setUser(localUser);
+    };
+
+    getUserFromLocalStorage();
+  }, []);
+
+  const saveUser = (user) => {
+    setUser(user);
+    localStorage.setItem("jwtToken", JSON.stringify(user));
+  };
+
+  const login = async (user) => {
+    const loggedUser = await sendRequest("login", user);
+    if (!loggedUser) return;
+
+    loggedUser && saveUser(loggedUser);
+  };
+
   const logout = () => console.log("logout");
   const verifyUser = () => console.log("verifyUser");
 
