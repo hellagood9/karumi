@@ -1,10 +1,12 @@
 import React from "react";
 
+import AppRoutes from "./routes";
+
 import "./styles/base.scss";
 import "./styles/typography.scss";
 
 const App = () => {
-  return <div className="App">Karumi</div>;
+  return <AppRoutes />;
 };
 
 export default App;
