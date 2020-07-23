@@ -1,0 +1,40 @@
+{
+    "env": {
+        "browser": true,
+        "es2020": true,
+        "node": true,
+        "jest": true
+    },
+    "extends": [
+        "eslint:recommended",
+        "plugin:react/recommended"
+    ],
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": 11,
+        "sourceType": "module"
+    },
+    "plugins": [
+        "react"
+    ],
+    "rules": {
+        "no-sparse-arrays": "off",
+        "no-unused-vars": "warn"
+    },
+    "settings": {
+        "react": {
+            "createClass": "createReactClass",
+            "pragma": "React",
+            "version": "detect",
+            "flowVersion": "0.53"
+        }
+    },
+    "globals": {
+        "React": "readonly",
+        "shallow": "readonly",
+        "render": "readonly",
+        "mount": "readonly"
+    }
+}
