@@ -8,7 +8,7 @@ import styles from "./styles.module.scss";
 
 const LoginForm = ({ onSubmit }) => {
   const initialValues = {
-    username: "",
+    username: "doe@test.com",
     password: "",
   };
 
