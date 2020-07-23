@@ -1,5 +1,7 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+![CI](https://github.com/hellagood9/karumi/workflows/CI/badge.svg)
+
 # Karumi Code Challenge
 
 by Maximiliano A. Sussini
