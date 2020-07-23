@@ -1,0 +1,2 @@
+(this.webpackJsonpkarumi=this.webpackJsonpkarumi||[]).push([[0],[,,,function(n,e,t){n.exports=t(10)},,,,,function(n,e,t){},function(n,e,t){},function(n,e,t){"use strict";t.r(e);var r=t(0),a=t.n(r),u=t(2),c=t.n(u),i=(t(8),t(9),function(){return a.a.createElement("div",{className:"App"},"Karumi")});c.a.render(a.a.createElement(i,null),document.getElementById("root"))}],[[3,1,2]]]);
+//# sourceMappingURL=main.b9160234.chunk.js.map
