@@ -23,6 +23,11 @@ function AuthProvider({ children }) {
     localStorage.setItem("jwtToken", JSON.stringify(user));
   };
 
+  const deleteUser = () => {
+    setUser(null);
+    localStorage.removeItem("jwtToken");
+  };
+
   const login = async (user) => {
     const loggedUser = await sendRequest("login", user);
     if (!loggedUser) return;
@@ -30,7 +35,11 @@ function AuthProvider({ children }) {
     loggedUser && saveUser(loggedUser);
   };
 
-  const logout = () => console.log("logout");
+  const logout = async () => {
+    await sendRequest("logout", undefined);
+    deleteUser();
+  };
+
   const verifyUser = () => console.log("verifyUser");
 
   return (
