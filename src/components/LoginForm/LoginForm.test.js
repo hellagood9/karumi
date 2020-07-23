@@ -1,4 +1,5 @@
 import FormLogin from "./index";
+import { sendRequest } from "../../utils/sendRequest";
 
 describe("FormLogin", () => {
   test("Renders correctly in DOM", () => {
@@ -69,6 +70,28 @@ describe("FormLogin", () => {
     expect(emailInput.props().className).toEqual("form-control");
     expect(emailInput.props().name).toEqual("username");
     expect(emailInput.props().value).toEqual("");
+  });
+
+  test("Should reach the 'login' endpoint and return a success response with the user and token payload", async () => {
+    const payload = {
+      username: "doe@test.com",
+      password: "123456",
+    };
+
+    const user = {
+      success: true,
+      user: {
+        username: payload.username,
+        name: "John Doe",
+      },
+      jwtoken:
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3RAdGVzdC5jb20iLCJpYXQiOjE1MTYyMzkwMjJ9.4lnM9fXjW0jtT3lkh8d8D9jMPG52KOVlFXj9C0qUzTQ",
+    };
+
+    fetch.mockResponseOnce(JSON.stringify(user));
+    const res = await sendRequest("login", payload);
+
+    expect(res).toEqual(user);
   });
 
   test("Should executes a handler function on submittal", () => {
