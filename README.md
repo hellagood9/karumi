@@ -38,7 +38,7 @@ Install the dependencies and and start the react-app.
 ```sh
 $ git clone https://github.com/hellagood9/karumi.git
 $ cd karumi
-$ yarn && yarn add netlify-cli -g
+$ yarn
 $ netlify dev
 ```
 
