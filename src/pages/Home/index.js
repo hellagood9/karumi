@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import classNames from "classnames";
 import { useAuthContext } from "../../context/AuthProvider";
 
@@ -9,11 +9,45 @@ import styles from "./styles.module.scss";
 const Home = () => {
   const {
     user: { user },
+    logout,
   } = useAuthContext();
 
-  const verifyMe = () => console.log("verifyMe");
+  const [userInfo, setUserInfo] = useState();
+  const [isValid, setisValid] = useState(false);
 
   const name = user && user.name;
+
+  useEffect(() => {
+    const getUserFromLocalStorage = () => {
+      const localUserJson = localStorage.getItem("jwtToken");
+
+      if (localUserJson) {
+        const localUser = JSON.parse(localUserJson);
+        setUserInfo(localUser.jwtoken);
+      }
+    };
+
+    getUserFromLocalStorage();
+  }, []);
+
+  const verifyMe = async () => {
+    const requestOptions = {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+      },
+      body: JSON.stringify(userInfo),
+    };
+
+    const response = await fetch(`/.netlify/functions/me`, requestOptions);
+
+    if (response.ok) {
+      setisValid(true);
+      setUserInfo(userInfo);
+    } else if (response.status === 401) {
+      logout();
+    }
+  };
 
   return (
     <Layout
@@ -29,6 +63,13 @@ const Home = () => {
         >
           Verify user
         </button>
+
+        {isValid && (
+          <p className={styles["verification"]}>{`User OK: ${userInfo.slice(
+            0,
+            40
+          )}...`}</p>
+        )}
       </div>
     </Layout>
   );
