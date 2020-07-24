@@ -40,7 +40,10 @@ function AuthProvider({ children }) {
     deleteUser();
   };
 
-  const verifyUser = () => console.log("verifyUser");
+  const verifyUser = async (user) => {
+    const verifiedUser = await sendRequest("me", user);
+    saveUser(verifiedUser);
+  };
 
   return (
     <AuthContext.Provider value={{ user, login, logout, verifyUser }}>
